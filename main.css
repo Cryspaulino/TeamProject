@@ -1,0 +1,662 @@
+
+/* main.css */
+
+/* ===================================
+   CSS VARIABLES & ROOT STYLES
+   
+   Good UX/accessibility
+   - CSS custom properties for consistent theming
+   - Easy to maintain and modify colors
+   - Improves accessibility by centralizing color choices
+   =================================== */
+:root {
+    /* Cinema-inspired color palette 
+       Dark theme reduces eye strain and creates atmosphere */
+    --color-screen: #0a0e27;        /* Deep navy background */
+    --color-reel: #1a1f3a;          /* Slightly lighter navy for cards */
+    --color-velvet: #8b0000;        /* crimson red accent */
+    --color-gold: #d4af37;          /* Metallic gold for highlights */
+    --color-silver: #c0c0c0;        /* Silver for text effects */
+    --color-spotlight: #ffd700;     /* Bright gold for glow effects */
+    --color-curtain: #4a0e0e;       /* Dark red for gradients */
+    --color-text-primary: #f5f5f5;  /* Light text for readability */
+    --color-text-muted: #a8a8a8;    /* Subdued text for metadata */
+    
+    /* Typography system */
+    --font-display: 'Bebas Neue', sans-serif;  /* Bold, condensed for headers */
+    --font-body: 'Work Sans', sans-serif;      /* Clean, readable for body text */
+    
+    /* Spacing scale - consistent spacing throughout */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+    --spacing-xl: 3rem;     /* 48px */
+    
+    /* Effects - reusable shadow and transition values */
+    --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-hover: 0 12px 36px rgba(212, 175, 55, 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===================================
+   RESET & BASE STYLES
+   
+   Reset browser defaults for consistent rendering
+   across different browsers
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* Makes width/height calculations easier */
+}
+
+body {
+    font-family: var(--font-body);
+    /* Gradient background - creates depth and atmosphere */
+    background: linear-gradient(135deg, var(--color-screen) 0%, var(--color-reel) 100%);
+    background-attachment: fixed;  /* Background stays in place when scrolling */
+    color: var(--color-text-primary);
+    line-height: 1.6;  /* Good readability */
+    min-height: 100vh;  /* Ensures footer stays at bottom */
+    position: relative;
+    overflow-x: hidden;  /* Prevents horizontal scrolling */
+}
+
+/* REQUIREMENT: CSS Animation
+   Film grain texture overlay - adds cinematic feel
+   This is a subtle visual effect using CSS gradients */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Creates repeating lines that simulate film grain */
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.1) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 3px
+        );
+    pointer-events: none;  /* Doesn't interfere with clicking */
+    opacity: 0.03;         /* Very subtle effect */
+    z-index: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;       /* Centers the container */
+    padding: 0 var(--spacing-md);
+    position: relative;
+    z-index: 2;           /* Above the film grain overlay */
+}
+
+/* ===================================
+   HEADER STYLES
+   
+   Site branding with animated effects
+   =================================== */
+
+.site-header {
+    background: linear-gradient(to bottom, rgba(26, 31, 58, 0.95), transparent);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 2px solid var(--color-gold);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+/* CSS Animation
+   Animated shimmer effect on header border
+   Creates a subtle glowing effect */
+.site-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    /* Gradient that goes from transparent to gold and back */
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--color-gold) 20%, 
+        var(--color-spotlight) 50%, 
+        var(--color-gold) 80%, 
+        transparent 100%
+    );
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Shimmer animation - fades in and out */
+@keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.site-title {
+    font-family: var(--font-display);
+    /* clamp() makes font size responsive: min, preferred, max */
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: 0.05em;  /* Slightly spaced for dramatic effect */
+    text-transform: uppercase;
+    /* Gradient text effect - gold to silver */
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-spotlight) 50%, var(--color-silver) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;  /* Makes gradient visible */
+    margin-bottom: var(--spacing-xs);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+/* REQUIREMENT: CSS Animation
+   Title glow animation - subtle pulsing effect */
+@keyframes titleGlow {
+    from { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
+    to { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+}
+
+.site-tagline {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    transition: var(--transition-smooth);
+}
+
+.back-link:hover {
+    color: var(--color-spotlight);
+    transform: translateX(-5px);
+}
+
+/* ===================================
+   CONTROLS & FILTERS
+   
+   REQUIREMENT: Drop-down menu
+   Contains the genre filter dropdown and watchlist link
+   =================================== */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;  /* Wraps on small screens */
+    background: rgba(26, 31, 58, 0.5);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--color-gold);
+    letter-spacing: 0.05em;
+}
+
+/* REQUIREMENT: Drop-down menu
+   Styled select element for genre filtering */
+.genre-dropdown {
+    background: var(--color-reel);
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-gold);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    min-width: 200px;
+}
+
+/* Interactive states for accessibility and UX */
+.genre-dropdown:hover,
+.genre-dropdown:focus {
+    border-color: var(--color-spotlight);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+    outline: none;  /* Custom focus style instead */
+}
+
+.watchlist-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: linear-gradient(135deg, var(--color-velvet), var(--color-curtain));
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    border: 2px solid var(--color-gold);
+}
+
+.watchlist-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.5);
+}
+
+.watchlist-icon {
+    font-size: 1.4rem;
+    color: var(--color-gold);
+}
+
+/* ===================================
+   MOVIE GRID
+   
+   REQUIREMENT: Responsive design
+   - Grid automatically adjusts number of columns
+   - Cards resize based on screen width
+   - Uses CSS Grid for flexible layout
+   =================================== */
+
+.movie-grid {
+    /* auto-fill creates as many columns as will fit */
+    /* minmax(280px, 1fr) = minimum 280px, grow to fill space */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.movie-card {
+    background: rgba(26, 31, 58, 0.6);
+    border-radius: 16px;
+    overflow: hidden;  /* Keeps content inside rounded corners */
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    cursor: pointer;
+    /* REQUIREMENT: CSS Animation - cards fade in on page load */
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+/* REQUIREMENT: CSS Animation
+   Staggered animation delays - cards appear one after another
+   Creates a cascading effect when page loads */
+.movie-card:nth-child(1) { animation-delay: 0.05s; }
+.movie-card:nth-child(2) { animation-delay: 0.1s; }
+.movie-card:nth-child(3) { animation-delay: 0.15s; }
+.movie-card:nth-child(4) { animation-delay: 0.2s; }
+.movie-card:nth-child(5) { animation-delay: 0.25s; }
+.movie-card:nth-child(6) { animation-delay: 0.3s; }
+.movie-card:nth-child(7) { animation-delay: 0.35s; }
+.movie-card:nth-child(8) { animation-delay: 0.4s; }
+.movie-card:nth-child(9) { animation-delay: 0.45s; }
+.movie-card:nth-child(10) { animation-delay: 0.5s; }
+.movie-card:nth-child(11) { animation-delay: 0.55s; }
+.movie-card:nth-child(12) { animation-delay: 0.6s; }
+
+/* Fade in and slide up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* REQUIREMENT: CSS Animation
+   Hover effect - lifts card and adds glow */
+.movie-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-gold);
+}
+
+.movie-poster {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2/3;  /* Maintains standard movie poster proportions */
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ensures image fills space without distortion */
+    transition: var(--transition-smooth);
+}
+
+/* CSS Animation
+   Zoom effect on hover - image scales up */
+.movie-card:hover .movie-poster img {
+    transform: scale(1.1);
+}
+
+/* Overlay that appears on hover */
+.movie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient overlay - darker at bottom */
+    background: linear-gradient(to top, rgba(10, 14, 39, 0.95) 0%, transparent 50%);
+    opacity: 0;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: var(--spacing-md);
+}
+
+/* Show overlay on card hover */
+.movie-card:hover .movie-overlay {
+    opacity: 1;
+}
+
+/* Quick-add button for watchlist
+   REQUIREMENT: This will connect to localStorage in future units */
+.quick-add {
+    background: var(--color-gold);
+    color: var(--color-screen);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;  /* Makes it circular */
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-weight: bold;
+}
+
+/* REQUIREMENT: CSS Animation
+   Button rotates and scales on hover */
+.quick-add:hover {
+    background: var(--color-spotlight);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.movie-info {
+    padding: var(--spacing-md);
+}
+
+.movie-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.03em;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-primary);
+}
+
+.movie-meta {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.movie-year,
+.movie-genre {
+    color: var(--color-text-muted);
+    background: rgba(212, 175, 55, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.movie-rating {
+    color: var(--color-gold);
+    font-weight: 600;
+}
+
+/* ===================================
+   MOVIE DETAIL PAGE
+   
+   URL parameters
+   This page receives data via URL (e.g., movie.html?id=5)
+   Layout: Two-column on desktop, stacked on mobile
+   =================================== */
+.movie-detail {
+    display: grid;
+    /* Two columns: 400px fixed for poster, rest for content */
+    grid-template-columns: 400px 1fr;
+    gap: var(--spacing-xl);
+    background: rgba(26, 31, 58, 0.6);
+    padding: var(--spacing-xl);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    margin-bottom: var(--spacing-xl);
+}
+
+.detail-poster img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.detail-title {
+    font-family: var(--font-display);
+    /* Responsive font size using clamp */
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.05em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+}
+
+.detail-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.detail-year,
+.detail-genre,
+.detail-runtime {
+    background: rgba(212, 175, 55, 0.15);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 8px;
+    color: var(--color-text-muted);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.detail-rating {
+    font-size: 1.5rem;
+}
+
+.rating-score {
+    color: var(--color-gold);
+    font-weight: 600;
+}
+
+.detail-plot {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    margin: var(--spacing-md) 0;
+}
+
+.detail-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.info-item h4 {
+    color: var(--color-gold);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-item p {
+    color: var(--color-text-muted);
+}
+
+.detail-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-velvet), var(--color-curtain));
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-gold);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(139, 0, 0, 0.5);
+}
+
+.btn-secondary {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold);
+    border: 2px solid var(--color-gold);
+}
+
+.btn-secondary:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.site-footer {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--color-text-muted);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    margin-top: var(--spacing-xl);
+    position: relative;
+    z-index: 2;
+}
+
+/* ===================================
+   More Stuff Later....
+   
+   Responsive design
+   Media queries adjust layout for different screen sizes
+   Mobile-first approach with progressive enhancement
+   =================================== */
+
+/* Tablet and below - switch to single column layout */
+@media (max-width: 1024px) {
+    .movie-detail {
+        /* Stack poster and content vertically on smaller screens */
+        grid-template-columns: 1fr;
+    }
+    
+    .detail-poster {
+        max-width: 400px;
+        margin: 0 auto;  /* Center the poster */
+    }
+}
+
+/* Mobile landscape and below */
+@media (max-width: 768px) {
+    .movie-grid {
+        /* Smaller minimum card size on tablets */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--spacing-md);
+    }
+    
+    .controls {
+        /* Stack controls vertically on mobile */
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .genre-dropdown {
+        width: 100%;  /* Full width on mobile */
+    }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+    .movie-grid {
+        /* Single column on very small screens */
+        grid-template-columns: 1fr;
+    }
+    
+    .site-title {
+        font-size: 2.5rem;  /* Smaller title on mobile */
+    }
+}
+
+/* ===================================
+   UTILITY CLASSES
+   Helper classes for common needs
+   =================================== */
+.hidden {
+    display: none !important;
+}
+
+/* REQUIREMENT: Good UX/accessibility
+   Screen reader only text - visually hidden but accessible */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Loading state for dynamic content */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* REQUIREMENT: Good UX/accessibility
+   Focus styles for keyboard navigation
+   Ensures all interactive elements are clearly visible when tabbed to */
+*:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}

@@ -1,0 +1,115 @@
+
+<!--movie.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details | Movie Night Decider</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ==========================================
+         MOVIE DETAIL PAGE
+         URL parameters
+         
+         This page will receive data via URL parameters
+         Like: movie.html?id=5
+         
+         
+         ========================================== -->
+    
+    <header class="site-header">
+        <div class="container">
+            <!-- Back navigation link -->
+            <a href="index.html" class="back-link">← Back to Movies</a>
+            <h1 class="site-title">Movie Details</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- ==========================================
+             MOVIE DETAIL ARTICLE
+             Two-column layout: poster on left, info on right
+             All content currently static (Unit 3)
+             Will be populated dynamically hopefully later
+             ========================================== -->
+        <article class="movie-detail" id="movie-detail">
+            <!-- LEFT COLUMN: Movie Poster -->
+            <div class="detail-poster">
+                <!-- This image will be updated via JavaScript using movie data -->
+                <img src="https://via.placeholder.com/400x600/1a1a2e/eee?text=Movie+Poster" 
+                     alt="Movie poster" 
+                     id="detail-poster-img">
+            </div>
+
+            <!-- RIGHT COLUMN: Movie Information -->
+            <div class="detail-content">
+                <!-- Movie title will be injected here -->
+                <h2 class="detail-title" id="detail-title">Movie Title</h2>
+                
+                <!-- Metadata badges (year, genre, runtime) -->
+                <div class="detail-meta">
+                    <span class="detail-year" id="detail-year">Year</span>
+                    <span class="detail-genre" id="detail-genre">Genre</span>
+                    <span class="detail-runtime" id="detail-runtime">Runtime</span>
+                </div>
+
+                <!-- Rating display -->
+                <div class="detail-rating">
+                    <span class="rating-score" id="detail-rating">⭐ 0.0/10</span>
+                </div>
+
+                <!-- Plot synopsis -->
+                <p class="detail-plot" id="detail-plot">
+                    Movie plot summary will appear here...
+                </p>
+
+                <!-- Additional info grid (Director, Cast, etc.) -->
+                <div class="detail-info-grid">
+                    <div class="info-item">
+                        <h4>Director</h4>
+                        <p id="detail-director">Director Name</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Cast</h4>
+                        <p id="detail-cast">Cast members</p>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     ACTION BUTTONS
+                     REQUIREMENT: Form elements & localStorage
+                     
+                     "Add to Watchlist" will use localStorage
+                     "Pick Random" could use the roulette animation requirement
+                     ========================================== -->
+                <div class="detail-actions">
+                    <button class="btn btn-primary" id="add-to-watchlist">
+                        <span class="btn-icon">★</span>
+                        Add to Watchlist
+                    </button>
+                    <button class="btn btn-secondary" id="random-pick">
+                        🎲 Pick Random Movie
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Movie Night Decider. Just try and steal our stuff...</p>
+    </footer>
+
+    <!-- ==========================================
+         MOVIE PAGE SCRIPT
+         Separate script for movie detail page
+         Will handle URL parameter parsing and data loading, I hope.
+         ========================================== -->
+    <script type="module" src="scripts/movie.js"></script>
+</body>
+</html>

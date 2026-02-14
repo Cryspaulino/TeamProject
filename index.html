@@ -1,0 +1,321 @@
+
+<!--index.html-->
+
+<!--Crystal and Karis-->
+<!--Team Project-->
+<!--WDD231-A2  Winter-->
+<!--Movie Night Decider-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Night Decider</title>
+    
+    <!-- Link to our main stylesheet -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Google Fonts: Preconnect for performance, then load our custom fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ==========================================
+         HEADER SECTION
+         Simple branding area with title and tagline
+         ========================================== -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">Movie Night</h1>
+            <p class="site-tagline">Can't decide? We'll help you pick.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- ==========================================
+             CONTROLS SECTION
+             Contains the genre filter and watchlist link
+             ========================================== -->
+        <section class="controls">
+            <!-- REQUIREMENT: Drop-down menu for filtering -->
+            <!-- This dropdown will be wired up with JavaScript in later units -->
+            <div class="filter-group">
+                <label for="genre-filter">Filter by Genre:</label>
+                <select id="genre-filter" class="genre-dropdown">
+                    <option value="all">All Genres</option>
+                    <option value="action">Action</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option>
+                    <option value="horror">Horror</option>
+                    <option value="sci-fi">Sci-Fi</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="animation">Animation</option>
+                </select>
+            </div>
+            
+            <!-- Link to watchlist (will use localStorage in future units) -->
+            <!-- The count will be dynamically updated via JavaScript -->
+            <a href="#watchlist" class="watchlist-btn">
+                <span class="watchlist-icon">★</span>
+                My Watchlist (<span id="watchlist-count">0</span>)
+            </a>
+        </section>
+
+        <!-- ==========================================
+             MOVIE GRID SECTION
+             For Responsive design
+             
+             Checkpoint: Static hardcoded content
+             - 12 movie cards displayed
+             - Each card has data-genre attribute for filtering
+             - Placeholder images (will be replaced with real posters)
+             - In later versions, this will be generated from movies.json
+             - These are just place-holder test movies that we could think of...
+             - Disclaimer:  My husband picked these movies...they'll change later
+             - Remember, no more that a hundred charaters, which i break a lot in this code.
+
+             ========================================== -->
+        <section class="movie-grid" id="movie-grid">
+            <!-- MOVIE CARD #1: Inception (Sci-Fi) -->
+            <!-- Each card follows the same structure:
+                 - Poster image with hover overlay
+                 - Quick-add button for watchlist
+                 - Movie info (title, year, genre, rating)
+                 - data-genre attribute enables filtering
+            -->
+            <article class="movie-card" data-genre="sci-fi">
+                <div class="movie-poster">
+                    <!-- Placeholder image - will be replaced with actual poster URLs -->
+                    <img src="https://via.placeholder.com/300x450/1a1a2e/eee?text=Inception" alt="Inception poster">
+                    
+                    <!-- Overlay appears on hover with quick-add button -->
+                    <!-- REQUIREMENT: This connects to localStorage in future units -->
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Inception</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2010</span>
+                        <span class="movie-genre">Sci-Fi</span>
+                    </div>
+                    <p class="movie-rating">⭐ 8.8/10</p>
+                </div>
+            </article>
+
+            <!-- MOVIE CARD #2: The Shawshank Redemption (Drama) -->
+            <article class="movie-card" data-genre="drama">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/2e1a1a/eee?text=The+Shawshank+Redemption" alt="The Shawshank Redemption poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">The Shawshank Redemption</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">1994</span>
+                        <span class="movie-genre">Drama</span>
+                    </div>
+                    <p class="movie-rating">⭐ 9.3/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="action">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/1a2e1a/eee?text=The+Dark+Knight" alt="The Dark Knight poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">The Dark Knight</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2008</span>
+                        <span class="movie-genre">Action</span>
+                    </div>
+                    <p class="movie-rating">⭐ 9.0/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="comedy">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/2e2e1a/eee?text=The+Grand+Budapest+Hotel" alt="The Grand Budapest Hotel poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">The Grand Budapest Hotel</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2014</span>
+                        <span class="movie-genre">Comedy</span>
+                    </div>
+                    <p class="movie-rating">⭐ 8.1/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="thriller">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/1a1a1a/eee?text=Parasite" alt="Parasite poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Parasite</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2019</span>
+                        <span class="movie-genre">Thriller</span>
+                    </div>
+                    <p class="movie-rating">⭐ 8.6/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="sci-fi">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/1a2e2e/eee?text=Interstellar" alt="Interstellar poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Interstellar</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2014</span>
+                        <span class="movie-genre">Sci-Fi</span>
+                    </div>
+                    <p class="movie-rating">⭐ 8.7/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="animation">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/2e1a2e/eee?text=Spider-Man:+Into+the+Spider-Verse" alt="Spider-Man poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Spider-Man: Into the Spider-Verse</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2018</span>
+                        <span class="movie-genre">Animation</span>
+                    </div>
+                    <p class="movie-rating">⭐ 8.4/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="drama">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/2e2e2e/eee?text=Pulp+Fiction" alt="Pulp Fiction poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Pulp Fiction</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">1994</span>
+                        <span class="movie-genre">Drama</span>
+                    </div>
+                    <p class="movie-rating">⭐ 8.9/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="horror">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/1a1a2e/eee?text=Get+Out" alt="Get Out poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Get Out</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2017</span>
+                        <span class="movie-genre">Horror</span>
+                    </div>
+                    <p class="movie-rating">⭐ 7.7/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="action">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/2e1a1a/eee?text=Mad+Max:+Fury+Road" alt="Mad Max poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Mad Max: Fury Road</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2015</span>
+                        <span class="movie-genre">Action</span>
+                    </div>
+                    <p class="movie-rating">⭐ 8.1/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="comedy">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/1a2e1a/eee?text=Knives+Out" alt="Knives Out poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">Knives Out</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">2019</span>
+                        <span class="movie-genre">Comedy</span>
+                    </div>
+                    <p class="movie-rating">⭐ 7.9/10</p>
+                </div>
+            </article>
+
+            <article class="movie-card" data-genre="sci-fi">
+                <div class="movie-poster">
+                    <img src="https://via.placeholder.com/300x450/2e2e1a/eee?text=The+Matrix" alt="The Matrix poster">
+                    <div class="movie-overlay">
+                        <button class="quick-add" aria-label="Add to watchlist">+</button>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">The Matrix</h3>
+                    <div class="movie-meta">
+                        <span class="movie-year">1999</span>
+                        <span class="movie-genre">Sci-Fi</span>
+                    </div>
+                    <p class="movie-rating">⭐ 8.7/10</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         FOOTER SECTION
+         Simple copyright notice thing
+         ========================================== -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Movie Night Decider. Just try and steal our stuff...</p>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT MODULE
+         
+         type="module" enables ES6 module syntax
+         This allows us to use import/export in our JS files
+         main.js is the entry point for this page
+         ========================================== -->
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
+
+
+<!--====================================================================================================-->
