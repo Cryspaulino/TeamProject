@@ -1,4 +1,3 @@
-
 <!--index.html-->
 
 <!--Crystal and Karis-->
@@ -10,19 +9,22 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Night Decider</title>
-    
+
     <!-- Link to our main stylesheet -->
-    <link rel="stylesheet" href="styles/main.css">
-    
+    <link rel="stylesheet" href="./main.css">
+
     <!-- Google Fonts: Preconnect for performance, then load our custom fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- ==========================================
          HEADER SECTION
@@ -31,6 +33,12 @@
     <header class="site-header">
         <div class="container">
             <h1 class="site-title">Movie Night</h1>
+            <nav>
+                <a href="./activity/activity.html">Activities</a>
+                <a href="./login/login.html">Log In</a>
+            </nav>
+
+
             <p class="site-tagline">Can't decide? We'll help you pick.</p>
         </div>
     </header>
@@ -56,7 +64,7 @@
                     <option value="animation">Animation</option>
                 </select>
             </div>
-            
+
             <!-- Link to watchlist (will use localStorage in future units) -->
             <!-- The count will be dynamically updated via JavaScript -->
             <a href="#watchlist" class="watchlist-btn">
@@ -91,7 +99,7 @@
                 <div class="movie-poster">
                     <!-- Placeholder image - will be replaced with actual poster URLs -->
                     <img src="https://via.placeholder.com/300x450/1a1a2e/eee?text=Inception" alt="Inception poster">
-                    
+
                     <!-- Overlay appears on hover with quick-add button -->
                     <!-- REQUIREMENT: This connects to localStorage in future units -->
                     <div class="movie-overlay">
@@ -111,7 +119,8 @@
             <!-- MOVIE CARD #2: The Shawshank Redemption (Drama) -->
             <article class="movie-card" data-genre="drama">
                 <div class="movie-poster">
-                    <img src="https://via.placeholder.com/300x450/2e1a1a/eee?text=The+Shawshank+Redemption" alt="The Shawshank Redemption poster">
+                    <img src="https://via.placeholder.com/300x450/2e1a1a/eee?text=The+Shawshank+Redemption"
+                        alt="The Shawshank Redemption poster">
                     <div class="movie-overlay">
                         <button class="quick-add" aria-label="Add to watchlist">+</button>
                     </div>
@@ -128,7 +137,8 @@
 
             <article class="movie-card" data-genre="action">
                 <div class="movie-poster">
-                    <img src="https://via.placeholder.com/300x450/1a2e1a/eee?text=The+Dark+Knight" alt="The Dark Knight poster">
+                    <img src="https://via.placeholder.com/300x450/1a2e1a/eee?text=The+Dark+Knight"
+                        alt="The Dark Knight poster">
                     <div class="movie-overlay">
                         <button class="quick-add" aria-label="Add to watchlist">+</button>
                     </div>
@@ -145,7 +155,8 @@
 
             <article class="movie-card" data-genre="comedy">
                 <div class="movie-poster">
-                    <img src="https://via.placeholder.com/300x450/2e2e1a/eee?text=The+Grand+Budapest+Hotel" alt="The Grand Budapest Hotel poster">
+                    <img src="https://via.placeholder.com/300x450/2e2e1a/eee?text=The+Grand+Budapest+Hotel"
+                        alt="The Grand Budapest Hotel poster">
                     <div class="movie-overlay">
                         <button class="quick-add" aria-label="Add to watchlist">+</button>
                     </div>
@@ -179,7 +190,8 @@
 
             <article class="movie-card" data-genre="sci-fi">
                 <div class="movie-poster">
-                    <img src="https://via.placeholder.com/300x450/1a2e2e/eee?text=Interstellar" alt="Interstellar poster">
+                    <img src="https://via.placeholder.com/300x450/1a2e2e/eee?text=Interstellar"
+                        alt="Interstellar poster">
                     <div class="movie-overlay">
                         <button class="quick-add" aria-label="Add to watchlist">+</button>
                     </div>
@@ -196,7 +208,8 @@
 
             <article class="movie-card" data-genre="animation">
                 <div class="movie-poster">
-                    <img src="https://via.placeholder.com/300x450/2e1a2e/eee?text=Spider-Man:+Into+the+Spider-Verse" alt="Spider-Man poster">
+                    <img src="https://via.placeholder.com/300x450/2e1a2e/eee?text=Spider-Man:+Into+the+Spider-Verse"
+                        alt="Spider-Man poster">
                     <div class="movie-overlay">
                         <button class="quick-add" aria-label="Add to watchlist">+</button>
                     </div>
@@ -213,7 +226,8 @@
 
             <article class="movie-card" data-genre="drama">
                 <div class="movie-poster">
-                    <img src="https://via.placeholder.com/300x450/2e2e2e/eee?text=Pulp+Fiction" alt="Pulp Fiction poster">
+                    <img src="https://via.placeholder.com/300x450/2e2e2e/eee?text=Pulp+Fiction"
+                        alt="Pulp Fiction poster">
                     <div class="movie-overlay">
                         <button class="quick-add" aria-label="Add to watchlist">+</button>
                     </div>
@@ -247,7 +261,8 @@
 
             <article class="movie-card" data-genre="action">
                 <div class="movie-poster">
-                    <img src="https://via.placeholder.com/300x450/2e1a1a/eee?text=Mad+Max:+Fury+Road" alt="Mad Max poster">
+                    <img src="https://via.placeholder.com/300x450/2e1a1a/eee?text=Mad+Max:+Fury+Road"
+                        alt="Mad Max poster">
                     <div class="movie-overlay">
                         <button class="quick-add" aria-label="Add to watchlist">+</button>
                     </div>
@@ -315,6 +330,7 @@
          ========================================== -->
     <script type="module" src="scripts/main.js"></script>
 </body>
+
 </html>
 
 

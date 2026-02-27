@@ -51,6 +51,12 @@
     box-sizing: border-box;  /* Makes width/height calculations easier */
 }
 
+header{
+    background-color: #0a0e27;
+    /* height: 50px; */
+    align-content: center;
+}
+
 body {
     font-family: var(--font-body);
     /* Gradient background - creates depth and atmosphere */
@@ -61,6 +67,11 @@ body {
     min-height: 100vh;  /* Ensures footer stays at bottom */
     position: relative;
     overflow-x: hidden;  /* Prevents horizontal scrolling */
+}
+
+main{
+    padding: 20px;
+    
 }
 
 /* REQUIREMENT: CSS Animation
