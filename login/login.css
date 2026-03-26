@@ -72,3 +72,43 @@ button:hover {
     font-size: 14px;
     text-align: center;
 } */
+
+.login-container{
+    margin: 20px;
+    /* width: 40%; */
+    justify-items: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #3b82f6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+.error-message {
+    margin-top: 15px;
+    font-size: 14px;
+}
