@@ -15,6 +15,9 @@ function getLogin() {
 
         const storedInfo = JSON.parse(localStorage.getItem("user"));
 
+        // filter through users. Adding users to storedInfo (as an array).
+        // Sign up as a next step so we can have many users instead of just one. Find user in the array. 
+
         if (!storedInfo) {
             errorMessage.textContent = "No user found. Please sign up first.";
             return;
