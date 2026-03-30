@@ -1,0 +1,121 @@
+
+
+
+{
+  "comment": "Curated list of family-friendly movies across several genres",
+  "useApi": false,
+  "movies": [
+    {
+      "id": 1,
+      "title": "Finding Nemo",
+      "year": "2003",
+      "genre": "animation",
+      "rating": 8.2,
+      "runtime": "100 min",
+      "director": "Andrew Stanton",
+      "cast": "Albert Brooks, Ellen DeGeneres, Alexander Gould",
+      "plot": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
+      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Finding+Nemo",
+      "rated": "G",
+      "imdbId": "tt0266543"
+    },
+    {
+      "id": 2,
+      "title": "Back to the Future",
+      "year": "1985",
+      "genre": "sci-fi",
+      "rating": 8.5,
+      "runtime": "116 min",
+      "director": "Robert Zemeckis",
+      "cast": "Michael J. Fox, Christopher Lloyd, Lea Thompson",
+      "plot": "A teenager is accidentally sent back to 1955 in a time-traveling DeLorean and must make sure his parents fall in love.",
+      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Back+to+the+Future",
+      "rated": "PG",
+      "imdbId": "tt0088763"
+    },
+    {
+      "id": 3,
+      "title": "The Princess Bride",
+      "year": "1987",
+      "genre": "comedy",
+      "rating": 8.0,
+      "runtime": "98 min",
+      "director": "Rob Reiner",
+      "cast": "Cary Elwes, Robin Wright, Mandy Patinkin",
+      "plot": "A farmhand-turned-pirate faces impossible odds to reunite with the woman he loves.",
+      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=The+Princess+Bride",
+      "rated": "PG",
+      "imdbId": "tt0093779"
+    },
+    {
+      "id": 4,
+      "title": "Apollo 13",
+      "year": "1995",
+      "genre": "historical",
+      "rating": 7.7,
+      "runtime": "140 min",
+      "director": "Ron Howard",
+      "cast": "Tom Hanks, Bill Paxton, Kevin Bacon",
+      "plot": "NASA must devise a strategy to return Apollo 13 safely to Earth after the spacecraft undergoes severe internal damage.",
+      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Apollo+13",
+      "rated": "PG",
+      "imdbId": "tt0112384"
+    },
+    {
+      "id": 5,
+      "title": "National Treasure",
+      "year": "2004",
+      "genre": "historical",
+      "rating": 6.9,
+      "runtime": "131 min",
+      "director": "Jon Turteltaub",
+      "cast": "Nicolas Cage, Diane Kruger, Justin Bartha",
+      "plot": "A historian races to find a legendary treasure hidden by America’s founders.",
+      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=National+Treasure",
+      "rated": "PG",
+      "imdbId": "tt0368891"
+    },
+    {
+      "id": 6,
+      "title": "Hidden Figures",
+      "year": "2016",
+      "genre": "drama",
+      "rating": 7.8,
+      "runtime": "127 min",
+      "director": "Theodore Melfi",
+      "cast": "Taraji P. Henson, Octavia Spencer, Janelle Monáe",
+      "plot": "Three brilliant African American women at NASA play vital roles in one of history’s greatest space missions.",
+      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Hidden+Figures",
+      "rated": "PG",
+      "imdbId": "tt4846340"
+    },
+    {
+      "id": 7,
+      "title": "The Sound of Music",
+      "year": "1965",
+      "genre": "drama",
+      "rating": 8.1,
+      "runtime": "172 min",
+      "director": "Robert Wise",
+      "cast": "Julie Andrews, Christopher Plummer, Eleanor Parker",
+      "plot": "A young woman brings music and joy back into the life of a widowed naval officer and his children.",
+      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=The+Sound+of+Music",
+      "rated": "G",
+      "imdbId": "tt0059742"
+    },
+    {
+      "id": 8,
+      "title": "Galaxy Quest",
+      "year": "1999",
+      "genre": "sci-fi",
+      "rating": 7.4,
+      "runtime": "102 min",
+      "director": "Dean Parisot",
+      "cast": "Tim Allen, Sigourney Weaver, Alan Rickman",
+      "plot": "The cast of a cult sci-fi show is mistaken for real heroes and drawn into an interstellar adventure.",
+      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Galaxy+Quest",
+      "rated": "PG",
+      "imdbId": "tt0177789"
+    }
+  ]
+}
