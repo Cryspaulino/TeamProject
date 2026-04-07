@@ -1,103 +1,92 @@
 /* ==========================================
    MAIN.JS - Entry Point for Movie Night Decider
-   
-   REQUIREMENT: Use of modules for organization
-   REQUIREMENT: Fetching data from API
-   
-   This file loads when index.html opens and:
-   - Loads movies from OMDb API
-   - Renders the movie grid
-   - Sets up genre filtering
-   - Updates watchlist count
+
+   Loads the movie grid, filters by genre, updates
+   the watchlist count, and picks a random movie
+   from the currently selected genre.
    ========================================== */
 
-// Import functions from our modules
-import { loadMovies, filterMoviesByGenre } from './data.js';
+import { loadMovies, filterMoviesByGenre, getRandomMovie } from './data.js';
 import { updateWatchlistCount } from './storage.js';
 import { renderMovieGrid, showLoading, showError } from './ui.js';
 
 console.log('✅ main.js loaded successfully!');
 console.log('🎬 Movie Night Decider initialized');
-console.log('🌐 OMDb API integration active!');
 
-/* ==========================================
-   GLOBAL STATE
-   Stores currently loaded movies
-   ========================================== */
 let allMovies = [];
+let filteredMovies = [];
 
-/* ==========================================
-   INITIALIZE APP
-   Runs when page loads
-   REQUIREMENT: Fetching data from API
-   ========================================== */
 async function initApp() {
     console.log('🚀 Initializing app...');
-    
-    // Show loading state
+
     showLoading('movie-grid');
-    
+
     try {
-        // REQUIREMENT: Fetching data from API
-        // Load movies from OMDb
         allMovies = await loadMovies();
-        
+
         if (allMovies.length === 0) {
             showError('Failed to load movies. Please check your internet connection.');
             return;
         }
-        
-        // Render the movie grid
-        renderMovieGrid(allMovies);
-        
-        // Set up genre filter
+
+        filteredMovies = [...allMovies];
+        renderMovieGrid(filteredMovies);
         setupGenreFilter();
-        
-        // Update watchlist count
+        setupRandomMovieButton();
         updateWatchlistCount();
-        
+
         console.log('✨ App initialized successfully!');
-        
     } catch (error) {
         console.error('❌ Error initializing app:', error);
         showError('Error loading movies. Please refresh the page.');
     }
 }
 
-/* ==========================================
-   SETUP GENRE FILTER
-   REQUIREMENT: Drop-down menu
-   Wires up the genre dropdown to filter movies
-   ========================================== */
 function setupGenreFilter() {
     const dropdown = document.getElementById('genre-filter');
-    
+
     if (!dropdown) {
         console.warn('⚠️ Genre filter dropdown not found');
         return;
     }
-    
+
     dropdown.addEventListener('change', (e) => {
         const selectedGenre = e.target.value;
         console.log(`🎭 Filtering by genre: ${selectedGenre}`);
-        
-        // Filter movies
-        const filteredMovies = filterMoviesByGenre(allMovies, selectedGenre);
-        
-        // Re-render grid with filtered movies
+
+        filteredMovies = filterMoviesByGenre(allMovies, selectedGenre);
         renderMovieGrid(filteredMovies);
     });
-    
+
     console.log('🎛️ Genre filter set up');
 }
 
-/* ==========================================
-   START THE APP
-   Wait for DOM to be ready, then initialize
-   ========================================== */
+function setupRandomMovieButton() {
+    const randomBtn = document.getElementById('random-movie-btn');
+
+    if (!randomBtn) {
+        console.warn('⚠️ Random movie button not found');
+        return;
+    }
+
+    randomBtn.addEventListener('click', () => {
+        const moviePool = filteredMovies.length > 0 ? filteredMovies : allMovies;
+        const randomMovie = getRandomMovie(moviePool);
+
+        if (!randomMovie) {
+            showError('No movies are available for that genre yet.');
+            return;
+        }
+
+        console.log(`🎲 Random movie selected: ${randomMovie.title}`);
+        window.location.href = `movie.html?id=${randomMovie.id}`;
+    });
+
+    console.log('🎲 Random movie button set up');
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initApp);
 } else {
-    // DOM already loaded
     initApp();
 }
