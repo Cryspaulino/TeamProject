@@ -1,4 +1,5 @@
-@import "/login/login.css"; 
+@import "/login/login.css";
+@import '/activity/activity.css';
 /* main.css */
 
 
@@ -15,27 +16,43 @@
 :root {
     /* Cinema-inspired color palette 
        Dark theme reduces eye strain and creates atmosphere */
-    --color-screen: #0a0e27;        /* Deep navy background */
-    --color-reel: #1a1f3a;          /* Slightly lighter navy for cards */
-    --color-velvet: #8b0000;        /* crimson red accent */
-    --color-gold: #d4af37;          /* Metallic gold for highlights */
-    --color-silver: #c0c0c0;        /* Silver for text effects */
-    --color-spotlight: #ffd700;     /* Bright gold for glow effects */
-    --color-curtain: #4a0e0e;       /* Dark red for gradients */
-    --color-text-primary: #f5f5f5;  /* Light text for readability */
-    --color-text-muted: #a8a8a8;    /* Subdued text for metadata */
-    
+    --color-screen: #0a0e27;
+    /* Deep navy background */
+    --color-reel: #1a1f3a;
+    /* Slightly lighter navy for cards */
+    --color-velvet: #8b0000;
+    /* crimson red accent */
+    --color-gold: #d4af37;
+    /* Metallic gold for highlights */
+    --color-silver: #c0c0c0;
+    /* Silver for text effects */
+    --color-spotlight: #ffd700;
+    /* Bright gold for glow effects */
+    --color-curtain: #4a0e0e;
+    /* Dark red for gradients */
+    --color-text-primary: #f5f5f5;
+    /* Light text for readability */
+    --color-text-muted: #a8a8a8;
+    /* Subdued text for metadata */
+
     /* Typography system */
-    --font-display: 'Bebas Neue', sans-serif;  /* Bold, condensed for headers */
-    --font-body: 'Work Sans', sans-serif;      /* Clean, readable for body text */
-    
+    --font-display: 'Bebas Neue', sans-serif;
+    /* Bold, condensed for headers */
+    --font-body: 'Work Sans', sans-serif;
+    /* Clean, readable for body text */
+
     /* Spacing scale - consistent spacing throughout */
-    --spacing-xs: 0.5rem;   /* 8px */
-    --spacing-sm: 1rem;     /* 16px */
-    --spacing-md: 1.5rem;   /* 24px */
-    --spacing-lg: 2rem;     /* 32px */
-    --spacing-xl: 3rem;     /* 48px */
-    
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 1.5rem;
+    /* 24px */
+    --spacing-lg: 2rem;
+    /* 32px */
+    --spacing-xl: 3rem;
+    /* 48px */
+
     /* Effects - reusable shadow and transition values */
     --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.6);
     --shadow-hover: 0 12px 36px rgba(212, 175, 55, 0.3);
@@ -51,30 +68,44 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;  /* Makes width/height calculations easier */
+    box-sizing: border-box;
+    /* Makes width/height calculations easier */
 }
 
-header{
-    background-color: #0a0e27;
+header {
     /* height: 50px; */
-    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: .5px solid #4d4c4c;
+
+    nav a {
+        text-decoration: none;
+        color: rgb(248, 231, 199);
+        font-size: large;
+    }
 }
 
 body {
     font-family: var(--font-body);
     /* Gradient background - creates depth and atmosphere */
     background: linear-gradient(135deg, var(--color-screen) 0%, var(--color-reel) 100%);
-    background-attachment: fixed;  /* Background stays in place when scrolling */
+    background-attachment: fixed;
+    /* Background stays in place when scrolling */
     color: var(--color-text-primary);
-    line-height: 1.6;  /* Good readability */
-    min-height: 100vh;  /* Ensures footer stays at bottom */
+    line-height: 1.6;
+    /* Good readability */
+    min-height: 100vh;
+    /* Ensures footer stays at bottom */
     position: relative;
-    overflow-x: hidden;  /* Prevents horizontal scrolling */
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
 }
 
-main{
+main {
     padding: 20px;
-    
+
 }
 
 /* REQUIREMENT: CSS Animation
@@ -89,25 +120,27 @@ body::before {
     width: 100%;
     height: 100%;
     /* Creates repeating lines that simulate film grain */
-    background-image: 
-        repeating-linear-gradient(
-            0deg,
+    background-image:
+        repeating-linear-gradient(0deg,
             rgba(0, 0, 0, 0.1) 0px,
             transparent 1px,
             transparent 2px,
-            rgba(0, 0, 0, 0.1) 3px
-        );
-    pointer-events: none;  /* Doesn't interfere with clicking */
-    opacity: 0.03;         /* Very subtle effect */
+            rgba(0, 0, 0, 0.1) 3px);
+    pointer-events: none;
+    /* Doesn't interfere with clicking */
+    opacity: 0.03;
+    /* Very subtle effect */
     z-index: 1;
 }
 
 .container {
     max-width: 1400px;
-    margin: 0 auto;       /* Centers the container */
+    margin: 0 auto;
+    /* Centers the container */
     padding: 0 var(--spacing-md);
     position: relative;
-    z-index: 2;           /* Above the film grain overlay */
+    z-index: 2;
+    /* Above the film grain overlay */
 }
 
 /* ===================================
@@ -135,33 +168,41 @@ body::before {
     width: 100%;
     height: 2px;
     /* Gradient that goes from transparent to gold and back */
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--color-gold) 20%, 
-        var(--color-spotlight) 50%, 
-        var(--color-gold) 80%, 
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--color-gold) 20%,
+            var(--color-spotlight) 50%,
+            var(--color-gold) 80%,
+            transparent 100%);
     animation: shimmer 3s ease-in-out infinite;
 }
 
 /* Shimmer animation - fades in and out */
 @keyframes shimmer {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 .site-title {
     font-family: var(--font-display);
     /* clamp() makes font size responsive: min, preferred, max */
     font-size: clamp(3rem, 8vw, 6rem);
-    letter-spacing: 0.05em;  /* Slightly spaced for dramatic effect */
+    letter-spacing: 0.05em;
+    /* Slightly spaced for dramatic effect */
     text-transform: uppercase;
     /* Gradient text effect - gold to silver */
     background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-spotlight) 50%, var(--color-silver) 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;  /* Makes gradient visible */
+    -webkit-text-fill-color: transparent;
+    /* Makes gradient visible */
     margin-bottom: var(--spacing-xs);
     animation: titleGlow 2s ease-in-out infinite alternate;
 }
@@ -169,8 +210,13 @@ body::before {
 /* REQUIREMENT: CSS Animation
    Title glow animation - subtle pulsing effect */
 @keyframes titleGlow {
-    from { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
-    to { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+    from {
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+    }
+
+    to {
+        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+    }
 }
 
 .site-tagline {
@@ -206,7 +252,8 @@ body::before {
     align-items: center;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
-    flex-wrap: wrap;  /* Wraps on small screens */
+    flex-wrap: wrap;
+    /* Wraps on small screens */
     background: rgba(26, 31, 58, 0.5);
     padding: var(--spacing-md);
     border-radius: 12px;
@@ -245,7 +292,8 @@ body::before {
 .genre-dropdown:focus {
     border-color: var(--color-spotlight);
     box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
-    outline: none;  /* Custom focus style instead */
+    outline: none;
+    /* Custom focus style instead */
 }
 
 .watchlist-btn {
@@ -293,7 +341,8 @@ body::before {
 .movie-card {
     background: rgba(26, 31, 58, 0.6);
     border-radius: 16px;
-    overflow: hidden;  /* Keeps content inside rounded corners */
+    overflow: hidden;
+    /* Keeps content inside rounded corners */
     transition: var(--transition-smooth);
     border: 1px solid rgba(212, 175, 55, 0.1);
     cursor: pointer;
@@ -304,18 +353,53 @@ body::before {
 /* REQUIREMENT: CSS Animation
    Staggered animation delays - cards appear one after another
    Creates a cascading effect when page loads */
-.movie-card:nth-child(1) { animation-delay: 0.05s; }
-.movie-card:nth-child(2) { animation-delay: 0.1s; }
-.movie-card:nth-child(3) { animation-delay: 0.15s; }
-.movie-card:nth-child(4) { animation-delay: 0.2s; }
-.movie-card:nth-child(5) { animation-delay: 0.25s; }
-.movie-card:nth-child(6) { animation-delay: 0.3s; }
-.movie-card:nth-child(7) { animation-delay: 0.35s; }
-.movie-card:nth-child(8) { animation-delay: 0.4s; }
-.movie-card:nth-child(9) { animation-delay: 0.45s; }
-.movie-card:nth-child(10) { animation-delay: 0.5s; }
-.movie-card:nth-child(11) { animation-delay: 0.55s; }
-.movie-card:nth-child(12) { animation-delay: 0.6s; }
+.movie-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.movie-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.movie-card:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.movie-card:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.movie-card:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.movie-card:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.movie-card:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.movie-card:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.movie-card:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.movie-card:nth-child(10) {
+    animation-delay: 0.5s;
+}
+
+.movie-card:nth-child(11) {
+    animation-delay: 0.55s;
+}
+
+.movie-card:nth-child(12) {
+    animation-delay: 0.6s;
+}
 
 /* Fade in and slide up animation */
 @keyframes fadeInUp {
@@ -323,6 +407,7 @@ body::before {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -340,13 +425,15 @@ body::before {
 .movie-poster {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 2/3;  /* Maintains standard movie poster proportions */
+    aspect-ratio: 2/3;
+    /* Maintains standard movie poster proportions */
 }
 
 .movie-poster img {
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* Ensures image fills space without distortion */
+    object-fit: cover;
+    /* Ensures image fills space without distortion */
     transition: var(--transition-smooth);
 }
 
@@ -386,7 +473,8 @@ body::before {
     border: none;
     width: 50px;
     height: 50px;
-    border-radius: 50%;  /* Makes it circular */
+    border-radius: 50%;
+    /* Makes it circular */
     font-size: 2rem;
     cursor: pointer;
     transition: var(--transition-smooth);
@@ -596,10 +684,11 @@ body::before {
         /* Stack poster and content vertically on smaller screens */
         grid-template-columns: 1fr;
     }
-    
+
     .detail-poster {
         max-width: 400px;
-        margin: 0 auto;  /* Center the poster */
+        margin: 0 auto;
+        /* Center the poster */
     }
 }
 
@@ -610,20 +699,21 @@ body::before {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: var(--spacing-md);
     }
-    
+
     .controls {
         /* Stack controls vertically on mobile */
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .filter-group {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .genre-dropdown {
-        width: 100%;  /* Full width on mobile */
+        width: 100%;
+        /* Full width on mobile */
     }
 }
 
@@ -633,9 +723,10 @@ body::before {
         /* Single column on very small screens */
         grid-template-columns: 1fr;
     }
-    
+
     .site-title {
-        font-size: 2.5rem;  /* Smaller title on mobile */
+        font-size: 2.5rem;
+        /* Smaller title on mobile */
     }
 }
 

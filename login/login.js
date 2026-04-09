@@ -1,41 +1,97 @@
 function getLogin() {
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
+    const form = document.getElementById("loginForm");
+    const registerBtn = document.getElementById("register");
+
+    const errorMessage = document.getElementById("error-message");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const errorMessage = document.getElementById("error-message");
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
 
         errorMessage.textContent = "";
+        message.textContent = "";
 
         if (!username || !password) {
             errorMessage.textContent = "Please enter both username and password.";
             return;
         }
 
-        const storedInfo = JSON.parse(localStorage.getItem("user"));
+        const users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // filter through users. Adding users to storedInfo (as an array).
-        // Sign up as a next step so we can have many users instead of just one. Find user in the array. 
+        const foundUser = users.find(user =>
+            user.username === username && user.password === password
+        );
 
-        if (!storedInfo) {
-            errorMessage.textContent = "No user found. Please sign up first.";
+        if (!foundUser) {
+            errorMessage.style.color = "red";
+            errorMessage.textContent = "Invalid username or password.";
             return;
         }
 
-        const message = document.getElementById("message");
+        message.style.color = "green";
+        message.textContent = `Welcome, ${username}! You are logged in.`;
 
-        if (username === storedInfo.username && password === storedInfo.password) {
-            message.style.color = "green";
-            message.innerHTML = "Hi! You've been successfully logged in."
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("currentUser", username);
 
-            localStorage.setItem("loggedIn", "true");
+        updateLoginStatus();
+
+        setTimeout(() => {
+            window.location.href = "./index.html";
+        }, 1500);
+    });
+
+    registerBtn.addEventListener("click", function () {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        errorMessage.textContent = "";
+        message.textContent = "";
+
+        if (!username || !password) {
+            errorMessage.textContent = "Please enter both username and password.";
+            return;
         }
 
-        console.log("Username:", username);
-        console.log("Password:", password);
+        const users = JSON.parse(localStorage.getItem("users")) || [];
 
+        const exists = users.some(user => user.username === username);
+
+        if (exists) {
+            errorMessage.style.color = "red";
+            errorMessage.textContent = "This username already exists.";
+            return;
+        }
+
+        users.push({
+            username,
+            password,
+            watchlist: []
+        });
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        message.style.color = "green";
+        message.textContent = "Your account was created! You can log in.";
     });
 }
+
+// function updateLoginStatus() {
+//     const loggedIn = localStorage.getItem("loggedIn");
+//     const currentUser = localStorage.getItem("currentUser");
+//     const statusEl = document.getElementById("login-status");
+
+//     if (!statusEl) return;
+
+//     if (loggedIn === "true" && currentUser) {
+//         statusEl.textContent =
+//             `Welcome ${currentUser}! Enjoy your time using our Movie Decider`;
+//     } else {
+//         statusEl.textContent = "";
+//     }
+// }
 
 getLogin();

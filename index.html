@@ -8,6 +8,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,19 +16,19 @@
   <link rel="stylesheet" href="./main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+    <script src="/activity/activity.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
     <div class="container">
       <h1 class="site-title">Movie Night</h1>
-      <nav>
-        <a href="./login.html">Log In</a>
-      </nav>
       <p class="site-tagline">Can't decide? We'll help you pick.</p>
+      <nav>
+        <a href="login/login.html">Log In</a>
+      </nav>
     </div>
   </header>
 
@@ -46,6 +47,18 @@
         <button id="random-movie-btn" class="btn btn-secondary" type="button">
           🎲 Pick Random Movie
         </button>
+        <button id="random-activity-btn" class="btn btn-secondary" type="button">
+          🎲 Pick Random Activity
+        </button>
+
+        <div id="activity-modal" class="modal">
+          <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <h2 id="activity-title"></h2>
+            <p id="activity-text"></p>
+            <img id="activity-image" src="" alt="Activity Image">
+          </div>
+        </div>
       </div>
 
       <a href="#watchlist" class="watchlist-btn">
@@ -63,4 +76,5 @@
 
   <script type="module" src="./main.js"></script>
 </body>
+
 </html>
