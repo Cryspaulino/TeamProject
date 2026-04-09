@@ -2,12 +2,12 @@ const activities = [
     {
         title: "Movie Bingo",
         description: "Check off clichés like 'dramatic rain' or 'slow clap'.",
-        image: "https://images.unsplash.com/photo-1601924928376-3c3b5a2b6d7b"
+        image: "https://i.etsystatic.com/24428404/r/il/69c6e5/2939756968/il_1588xN.2939756968_4q8j.jpg"
     },
     {
         title: "Snack Challenge",
         description: "Try a new snack combo during the movie.",
-        image: "https://images.unsplash.com/photo-1585238342028-4b0d5f0f6f5e"
+        image: "https://pizzazzerie.com/wp-content/uploads/2021/06/movie-night-snacks-board-1057x1536.jpg"
     },
     {
         title: "Quote Along",
@@ -17,12 +17,12 @@ const activities = [
     {
         title: "No Phone Challenge",
         description: "Put your phone away the whole movie.",
-        image: "https://www.gettyimages.in/detail/photo/teenage-girls-and-boys-keeping-mobile-phones-in-royalty-free-image/1241444645"
+        image: "https://readingmytealeaves.com/wp-content/uploads/2018/07/phone_storage_reading_my_tea_leaves_IMG_8757.jpg"
     },
     {
         title: "Rate Every Scene",
         description: "Give each scene a score out of 10.",
-        image: "https://www.pinterest.com/ideas/star-rating/959180437138/"
+        image: "https://www.fynzo.com/wp-content/uploads/2022/10/rating-scale-1024x576.png"
     }
 ];
 
@@ -35,12 +35,13 @@ document.getElementById("random-activity-btn").addEventListener("click", () => {
     const activity = getRandomActivity();
 
     document.getElementById("activity-title").textContent =
-        "Your activity of the day";
+        `Your activity of the day is...
+        ${activity.title}!`;
+        
+        document.getElementById("activity-image").src = activity.image;
 
-    document.getElementById("activity-text").textContent =
-        `${activity.title} — ${activity.description}`;
-
-    document.getElementById("activity-image").src = activity.image;
+        document.getElementById("activity-text").textContent =
+        `${activity.description}`;
 
     document.getElementById("activity-modal").style.display = "block";
 });
