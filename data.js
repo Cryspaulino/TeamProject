@@ -106,3 +106,19 @@ export function getRandomMovie(movies) {
   const randomIndex = Math.floor(Math.random() * movies.length);
   return movies[randomIndex];
 }
+
+export function displayMovie(movie) {
+  if (!movie) return;
+
+  document.getElementById("movie-title").textContent = movie.title;
+  document.getElementById("movie-image").src = movie.image;
+  document.getElementById("movie-description").textContent = movie.description;
+}
+
+const button = document.getElementById("random-movie-btn");
+
+await loadMovies();
+
+button.addEventListener("click", () => {
+  displayMovie(getRandomMovie());
+});

@@ -1,8 +1,8 @@
-
 <!--movie.html-->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="./main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script type="module" src="/data.js" defer></script>
+    <script type="module" src="/main.js" defer></script>
 </head>
+
 <body>
     <!-- ==========================================
          MOVIE DETAIL PAGE
@@ -22,7 +26,7 @@
          
          
          ========================================== -->
-    
+
     <header class="site-header">
         <div class="container">
             <!-- Back navigation link -->
@@ -39,37 +43,23 @@
              Will be populated dynamically hopefully later
              ========================================== -->
         <article class="movie-detail" id="movie-detail">
-            <!-- LEFT COLUMN: Movie Poster -->
             <div class="detail-poster">
-                <!-- This image will be updated via JavaScript using movie data -->
-                <img src="https://via.placeholder.com/400x600/1a1a2e/eee?text=Movie+Poster" 
-                     alt="Movie poster" 
-                     id="detail-poster-img">
+                <img src="https://via.placeholder.com/400x600/1a1a2e/eee?text=Movie+Poster" alt="Movie poster"
+                    id="detail-poster-img">
             </div>
-
-            <!-- RIGHT COLUMN: Movie Information -->
             <div class="detail-content">
-                <!-- Movie title will be injected here -->
                 <h2 class="detail-title" id="detail-title">Movie Title</h2>
-                
-                <!-- Metadata badges (year, genre, runtime) -->
+
                 <div class="detail-meta">
                     <span class="detail-year" id="detail-year">Year</span>
                     <span class="detail-genre" id="detail-genre">Genre</span>
                     <span class="detail-runtime" id="detail-runtime">Runtime</span>
                 </div>
-
-                <!-- Rating display -->
                 <div class="detail-rating">
                     <span class="rating-score" id="detail-rating">⭐ 0.0/10</span>
                 </div>
-
-                <!-- Plot synopsis -->
                 <p class="detail-plot" id="detail-plot">
-                    Movie plot summary will appear here...
                 </p>
-
-                <!-- Additional info grid (Director, Cast, etc.) -->
                 <div class="detail-info-grid">
                     <div class="info-item">
                         <h4>Director</h4>
@@ -93,9 +83,9 @@
                         <span class="btn-icon">★</span>
                         Add to Watchlist
                     </button>
-                    <button class="btn btn-secondary" id="random-pick">
+                    <!-- <button class="btn btn-secondary" id="random-pick">
                         🎲 Pick Random Movie
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </article>
@@ -112,4 +102,5 @@
          ========================================== -->
     <script type="module" src="./movie.js"></script>
 </body>
+
 </html>

@@ -6,7 +6,7 @@
    from the currently selected genre.
    ========================================== */
 
-import { loadMovies, filterMoviesByGenre, getRandomMovie } from './data.js';
+import { loadMovies, filterMoviesByGenre, getRandomMovie, displayMovie } from './data.js';
 import { updateWatchlistCount } from './storage.js';
 import { renderMovieGrid, showLoading, showError } from './ui.js';
 
@@ -20,6 +20,14 @@ async function initApp() {
     console.log('🚀 Initializing app...');
 
     showLoading('movie-grid');
+
+    const button = document.getElementById("random-movie-btn");
+
+    await loadMovies();
+
+    button.addEventListener("click", () => {
+        displayMovie(getRandomMovie());
+    });
 
     try {
         allMovies = await loadMovies();

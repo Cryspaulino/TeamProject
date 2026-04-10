@@ -1,13 +1,10 @@
-
-
-
 {
   "comment": "Curated list of family-friendly movies across several genres",
   "useApi": false,
   "movies": [
-    {
-      "id": 1,
+    { 
       "title": "Finding Nemo",
+      "id": 1,
       "year": "2003",
       "genre": "animation",
       "rating": 8.2,
@@ -15,13 +12,13 @@
       "director": "Andrew Stanton",
       "cast": "Albert Brooks, Ellen DeGeneres, Alexander Gould",
       "plot": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
-      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Finding+Nemo",
+      "poster": "https://lumiere-a.akamaihd.net/v1/images/p_findingnemo_19752_05271d3f.jpeg",
       "rated": "G",
       "imdbId": "tt0266543"
     },
-    {
-      "id": 2,
+    { 
       "title": "Back to the Future",
+      "id": 2,
       "year": "1985",
       "genre": "sci-fi",
       "rating": 8.5,
@@ -29,13 +26,13 @@
       "director": "Robert Zemeckis",
       "cast": "Michael J. Fox, Christopher Lloyd, Lea Thompson",
       "plot": "A teenager is accidentally sent back to 1955 in a time-traveling DeLorean and must make sure his parents fall in love.",
-      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Back+to+the+Future",
+      "poster": "https://www.overture.org/media/fw4jeqqw/back-tt-future_banner.jpg?width=1920&height=1080&quality=70&v=1db7d4fb440de00",
       "rated": "PG",
       "imdbId": "tt0088763"
     },
-    {
-      "id": 3,
+    { 
       "title": "The Princess Bride",
+      "id": 3,
       "year": "1987",
       "genre": "comedy",
       "rating": 8.0,
@@ -43,13 +40,13 @@
       "director": "Rob Reiner",
       "cast": "Cary Elwes, Robin Wright, Mandy Patinkin",
       "plot": "A farmhand-turned-pirate faces impossible odds to reunite with the woman he loves.",
-      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=The+Princess+Bride",
+      "poster": "https://m.media-amazon.com/images/I/712n+hhjX3L._SY342_.jpg",
       "rated": "PG",
       "imdbId": "tt0093779"
     },
-    {
-      "id": 4,
+    { 
       "title": "Apollo 13",
+      "id": 4,
       "year": "1995",
       "genre": "historical",
       "rating": 7.7,
@@ -57,13 +54,13 @@
       "director": "Ron Howard",
       "cast": "Tom Hanks, Bill Paxton, Kevin Bacon",
       "plot": "NASA must devise a strategy to return Apollo 13 safely to Earth after the spacecraft undergoes severe internal damage.",
-      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Apollo+13",
+      "poster": "https://m.media-amazon.com/images/I/71CGNFujDxL._SX342_.jpg",
       "rated": "PG",
       "imdbId": "tt0112384"
     },
-    {
-      "id": 5,
+    { 
       "title": "National Treasure",
+      "id": 5,
       "year": "2004",
       "genre": "historical",
       "rating": 6.9,
@@ -71,13 +68,13 @@
       "director": "Jon Turteltaub",
       "cast": "Nicolas Cage, Diane Kruger, Justin Bartha",
       "plot": "A historian races to find a legendary treasure hidden by America’s founders.",
-      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=National+Treasure",
+      "poster": "https://m.media-amazon.com/images/I/51EGSXjjOVL._SY300_SX300_QL70_FMwebp_.jpg",
       "rated": "PG",
       "imdbId": "tt0368891"
     },
-    {
-      "id": 6,
+    { 
       "title": "Hidden Figures",
+      "id": 6,
       "year": "2016",
       "genre": "drama",
       "rating": 7.8,
@@ -85,13 +82,13 @@
       "director": "Theodore Melfi",
       "cast": "Taraji P. Henson, Octavia Spencer, Janelle Monáe",
       "plot": "Three brilliant African American women at NASA play vital roles in one of history’s greatest space missions.",
-      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Hidden+Figures",
+      "poster": "https://m.media-amazon.com/images/I/91HyCGVD9aL._SY342_.jpg",
       "rated": "PG",
       "imdbId": "tt4846340"
     },
-    {
-      "id": 7,
+    { 
       "title": "The Sound of Music",
+      "id": 7,
       "year": "1965",
       "genre": "drama",
       "rating": 8.1,
@@ -99,13 +96,13 @@
       "director": "Robert Wise",
       "cast": "Julie Andrews, Christopher Plummer, Eleanor Parker",
       "plot": "A young woman brings music and joy back into the life of a widowed naval officer and his children.",
-      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=The+Sound+of+Music",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sound_of_music.jpg/500px-Sound_of_music.jpg",
       "rated": "G",
       "imdbId": "tt0059742"
     },
-    {
-      "id": 8,
+    { 
       "title": "Galaxy Quest",
+      "id": 8,
       "year": "1999",
       "genre": "sci-fi",
       "rating": 7.4,
@@ -113,7 +110,7 @@
       "director": "Dean Parisot",
       "cast": "Tim Allen, Sigourney Weaver, Alan Rickman",
       "plot": "The cast of a cult sci-fi show is mistaken for real heroes and drawn into an interstellar adventure.",
-      "poster": "https://via.placeholder.com/300x450/1a1a2e/eee?text=Galaxy+Quest",
+      "poster": "https://m.media-amazon.com/images/I/91pUjYvlf5L._SY445_.jpg",
       "rated": "PG",
       "imdbId": "tt0177789"
     }
